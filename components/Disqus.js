@@ -1,5 +1,5 @@
 import BLOG from '@/blog.config'
-import { DiscussionEmbed } from 'disqus-react';
+import { DiscussionEmbed } from 'disqus-react'
 
 const Disqus = ({ frontMatter }) => {
 
