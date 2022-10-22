@@ -5,6 +5,13 @@ import { useGlobal } from '@/lib/global'
 import React from 'react'
 import { useRouter } from 'next/router'
 
+const DisqusComponent = dynamic(
+  () => {
+    return import('@/components/Disqus')
+  },
+  { ssr: false}
+)
+
 const WalineComponent = dynamic(
   () => {
     return import('@/components/WalineComponent')
@@ -64,6 +71,9 @@ const Comment = ({ frontMatter }) => {
   return (
     <div id='comment' className='comment mt-5 text-gray-800 dark:text-gray-300'>
       <Tabs>
+        {BLOG.COMMENT_DISQUS_SHORT_NAME && (<div key='disqus'>
+            <DisqusComponent frontMatter={frontMatter}/>
+        </div>)}
 
         { BLOG.COMMENT_WALINE_SERVER_URL && (<div key='Waline'>
             <WalineComponent/>

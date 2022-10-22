@@ -67,7 +67,7 @@ const BLOG = {
     'https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json', // 挂件模型地址 @see https://github.com/xiazeyu/live2d-widget-models
   WIDGET_PET_SWITCH_THEME: true, // 点击宠物挂件切换博客主题
 
-  // 评论互动 可同时开启多个支持 GISCUS CUSDIS UTTERRANCES GITALK
+  // 评论互动 可同时开启多个支持 GISCUS CUSDIS UTTERRANCES GITALK DISQUS
 
   // giscus @see https://giscus.app/
   COMMENT_GISCUS_REPO: process.env.NEXT_PUBLIC_COMMENT_GISCUS_REPO || '', // 你的Github仓库名 e.g 'tangly1024/NotionNext'
@@ -119,6 +119,9 @@ const BLOG = {
 
   COMMENT_WALINE_SERVER_URL: process.env.NEXT_PUBLIC_WALINE_SERVER_URL || '', // Waline 评论 @see https://waline.js.org/guide/get-started.html
   COMMENT_WALINE_RECENT: process.env.NEXT_PUBLIC_WALINE_RECENT || false, // 最新评论
+
+  COMMENT_DISQUS_SHORT_NAME: process.env.NEXT_PUBLIC_DISQUS_SHORT_NAME || '',
+  COMMENT_DISQUS_LANG: process.env.NEXT_PUBLIC_DISQUS_LANG || 'zh_TW', //e.g. for Traditional Chinese (Taiwan)	
 
   // 站点统计
   ANALYTICS_BUSUANZI_ENABLE: false, // 展示网站阅读量、访问数 see http://busuanzi.ibruce.info/
