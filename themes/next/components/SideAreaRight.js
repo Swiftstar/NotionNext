@@ -6,6 +6,8 @@ import CategoryGroup from './CategoryGroup'
 import TagGroups from './TagGroups'
 import CONFIG_NEXT from '../config_next'
 import { useRouter } from 'next/router'
+import NextRecentComments from './NextRecentComments'
+import BLOG from '@/blog.config'
 
 /**
  * 侧边平铺
@@ -20,9 +22,6 @@ import { useRouter } from 'next/router'
 const SideAreaRight = (props) => {
   const { tags, currentTag, slot, categories, currentCategory } = props
   const { locale } = useGlobal()
-  if (!CONFIG_NEXT.RIGHT_BAR) {
-    return <></>
-  }
   const router = useRouter()
   return (<aside id='right' className='hidden 2xl:block flex-col w-60 ml-4'>
 
@@ -76,6 +75,18 @@ const SideAreaRight = (props) => {
             </div>
           </Card>
          )}
+
+        {BLOG.COMMENT_WALINE_SERVER_URL && BLOG.COMMENT_WALINE_RECENT && <Card>
+            <div className="text-sm pb-1 px-2 flex flex-nowrap justify-between font-light dark:text-gray-200">
+              <div className="text-gray-600 dark:text-gray-200">
+                <i className="mr-2 fas fa-tag" />
+                {locale.COMMON.RECENT_COMMENTS}
+              </div>
+            </div>
+            <div className="px-2 pt-2">
+                <NextRecentComments/>
+            </div>
+         </Card>}
 
       </div>
     </aside>

@@ -6,6 +6,14 @@ import Catalog from './Catalog'
 import { InfoCard } from './InfoCard'
 import { AnalyticsCard } from './AnalyticsCard'
 import CONFIG_HEXO from '../config_hexo'
+import HexoRecentComments from './HexoRecentComments'
+import BLOG from '@/blog.config'
+
+/**
+ * Hexo主题右侧栏
+ * @param {*} props
+ * @returns
+ */
 export default function SideRight(props) {
   const {
     post, currentCategory, categories, latestPosts, tags,
@@ -19,7 +27,7 @@ export default function SideRight(props) {
 
       {showCategory && (
         <Card>
-          <div className='ml-2 mb-1 font-sans'>
+          <div className='ml-2 mb-1 '>
             <i className='fas fa-th' /> 分类
           </div>
           <CategoryGroup
@@ -37,8 +45,10 @@ export default function SideRight(props) {
         <LatestPostsGroup {...props} />
       </Card>}
 
+      {BLOG.COMMENT_WALINE_SERVER_URL && BLOG.COMMENT_WALINE_RECENT && <HexoRecentComments/>}
+
       <div className='sticky top-20'>
-        {post && post.toc && <Card>
+        {post && post.toc && post.toc.length > 1 && <Card>
           <Catalog toc={post.toc} />
         </Card>}
         {slot}

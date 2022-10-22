@@ -5,7 +5,8 @@ import { useGlobal } from '@/lib/global'
 import * as ThemeMap from '@/themes'
 import React from 'react'
 import { idToUuid } from 'notion-utils'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
+import { isBrowser } from '@/lib/utils'
 
 /**
  * 根据notion的slug访问页面
@@ -16,12 +17,12 @@ const Slug = props => {
   const { theme, changeLoadingState } = useGlobal()
   const ThemeComponents = ThemeMap[theme]
   const { post, siteInfo } = props
+  const router = Router.useRouter()
 
   if (!post) {
     changeLoadingState(true)
-    const router = useRouter()
     setTimeout(() => {
-      if (typeof document !== 'undefined') {
+      if (isBrowser()) {
         const article = document.getElementById('container')
         if (!article) {
           router.push('/404').then(() => {
@@ -47,9 +48,9 @@ const Slug = props => {
   }, [post])
 
   /**
-     * 验证文章密码
-     * @param {*} result
-     */
+   * 验证文章密码
+   * @param {*} result
+   */
   const validPassword = result => {
     if (result) {
       setLock(false)
@@ -61,12 +62,16 @@ const Slug = props => {
   const meta = {
     title: `${post?.title} | ${siteInfo?.title}`,
     description: post?.summary,
-    type: 'article',
-    slug: 'article/' + post?.slug,
+    type: post.type,
+    slug: post?.slug,
     image: post?.page_cover,
     category: post?.category?.[0],
     tags: post?.tags
   }
+
+  Router.events.on('routeChangeComplete', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  })
 
   return (
     <ThemeComponents.LayoutSlug {...props} showArticleInfo={true} meta={meta} />
@@ -82,25 +87,28 @@ export async function getStaticPaths() {
   }
 
   const from = 'slug-paths'
-  const { allPosts } = await getGlobalNotionData({ from })
+  const { allPages } = await getGlobalNotionData({ from })
   return {
-    paths: allPosts.map(row => ({ params: { slug: row.slug } })),
+    paths: allPages.map(row => ({ params: { slug: [row.slug] } })),
     fallback: true
   }
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const from = `slug-props-${slug}`
-  const props = await getGlobalNotionData({ from, pageType: ['Post'] })
-  const allPosts = props.allPosts
-  props.post = props.allPosts.find((p) => {
-    return p.slug === slug || p.id === idToUuid(slug)
+  // slug 是个数组
+  const fullSlug = slug.join('/')
+  const from = `slug-props-${fullSlug}`
+  const props = await getGlobalNotionData({ from })
+  props.post = props.allPages.find((p) => {
+    return p.slug === fullSlug || p.id === idToUuid(fullSlug)
   })
   if (!props.post) {
+    console.warn('无效地址', fullSlug)
     return { props, revalidate: 1 }
   }
   props.post.blockMap = await getPostBlocks(props.post.id, 'slug')
 
+  const allPosts = props.allPages.filter(page => page.type === 'Post')
   const index = allPosts.indexOf(props.post)
   props.prev = allPosts.slice(index - 1, index)[0] ?? allPosts.slice(-1)[0]
   props.next = allPosts.slice(index + 1, index + 2)[0] ?? allPosts[0]
@@ -109,6 +117,7 @@ export async function getStaticProps({ params: { slug } }) {
     allPosts,
     BLOG.POST_RECOMMEND_COUNT
   )
+  delete props.allPages
   return {
     props,
     revalidate: 1

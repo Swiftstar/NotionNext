@@ -7,15 +7,15 @@ export const LayoutArchive = props => {
   const postsSortByDate = Object.create(posts)
 
   postsSortByDate.sort((a, b) => {
-    const dateA = new Date(a?.date.start_date || a.createdTime)
-    const dateB = new Date(b?.date.start_date || b.createdTime)
+    const dateA = new Date(a?.date?.start_date || a.createdTime)
+    const dateB = new Date(b?.date?.start_date || b.createdTime)
     return dateB - dateA
   })
 
   const archivePosts = {}
 
   postsSortByDate.forEach(post => {
-    const date = post.date.start_date.slice(0, 7)
+    const date = post.date?.start_date.slice(0, 7)
     if (archivePosts[date]) {
       archivePosts[date].push(post)
     } else {
@@ -41,11 +41,11 @@ export const LayoutArchive = props => {
                 >
                   <div id={post?.date?.start_date}>
                     <span className="text-gray-400">
-                      {post.date.start_date}
+                      {post.date?.start_date}
                     </span>{' '}
                     &nbsp;
                     <Link
-                      href={`${BLOG.SUB_PATH}/article/${post.slug}`}
+                      href={`${BLOG.SUB_PATH}/${post.slug}`}
                       passHref
                     >
                       <a className="dark:text-gray-400  dark:hover:text-gray-300 overflow-x-hidden hover:underline cursor-pointer text-gray-600">
