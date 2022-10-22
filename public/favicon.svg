@@ -1,9 +1,16 @@
-<svg width="117" height="110" viewBox="0 0 117 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M102.282 87.5128C84.385 102.427 66.8743 109.829 49.7503 109.719C32.6263 109.608 19.4242 102.151 10.1441 87.3471C0.863999 72.5431 -1.78746 53.2095 2.18973 29.3464C6.16692 5.48324 20.3633 -3.68639 44.7788 1.83748C69.1943 7.36136 89.3565 19.2929 105.265 37.6322C121.174 55.9715 120.18 72.5983 102.282 87.5128Z" fill="url(#paint0_linear)"/>
-<defs>
-<linearGradient id="paint0_linear" x1="0.399994" y1="0.279999" x2="0.399994" y2="109.72" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FF5F6D"/>
-<stop offset="1" stop-color="#FFC371"/>
-</linearGradient>
-</defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">  <image id="image0" width="16" height="16" x="0" y="0"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAwFBMVEUgnO8gnO4gnO0gnO45
+p/BZtfKd1PfF5frX7fx0wfRxwPTN6PuW0Pf5/P7P6fvw+P7///9guPMknu7q9f254PmEyPU3pvAt
+ou/2+/74/P4nn+6Uz/fD5Pqi1vhtvvQ7qPDK5/vf8fy43/m23vnt9/1GrfFatvL0+v6+4vq84fr7
+/f8lnu4kne5QsfHp9f3c7/x8xfW64Pp5w/S94vqa0veZ0veJy/ao2PiAx/X9/v+d0/c2pfBMsPEi
+ne4uou8ooO7or7HkAAAAA3RSTlN++X7W2odLAAAAAWJLR0QQlbINLAAAAAd0SU1FB+YKFggeFYSE
+yFEAAACNSURBVBjTZc+HCsMwDARQp9eVpuPcvffeK93j//+qJtgmbQUS3AMhJISDUDmR76xEhFNU
+dQCxeCLpAilPQzqTzVEiXyhqKJUr1Vodkg2zApdNoMW2gU6Xvf5gyJGG8YSczjzOFxqWK67VKW5g
+VrbcAXseLBzpAyeeLfi8APJ6s3B/PNV8vQP4e+7nffEBISILLhOCvBUAAAAldEVYdGRhdGU6Y3Jl
+YXRlADIwMjItMTAtMjJUMDg6MzA6MjErMDA6MDAzhJg1AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIy
+LTEwLTIyVDA4OjMwOjIxKzAwOjAwQtkgiQAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMi0xMC0y
+MlQwODozMDoyMSswMDowMBXMAVYAAAAASUVORK5CYII=" />
 </svg>
