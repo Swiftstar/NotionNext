@@ -127,7 +127,7 @@ export default function ArticleDetail(props) {
 
       {/* 评论互动 */}
       <div className="duration-200 w-full dark:border-gray-700 bg-white dark:bg-gray-800">
-        <Comment frontMatter={post} />
+        <Comment frontMatter={post} url={url} />
       </div>
     </div>
 

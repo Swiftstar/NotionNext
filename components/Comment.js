@@ -49,7 +49,7 @@ const ValineComponent = dynamic(() => import('@/components/ValineComponent'), {
   ssr: false
 })
 
-const Comment = ({ frontMatter }) => {
+const Comment = ({ frontMatter, url }) => {
   if (!frontMatter) {
     return <>Loading...</>
   }
@@ -69,19 +69,25 @@ const Comment = ({ frontMatter }) => {
   }, [])
 
   return (
-    <div id='comment' className='comment mt-5 text-gray-800 dark:text-gray-300'>
+    <div id="comment" className="comment mt-5 text-gray-800 dark:text-gray-300">
       <Tabs>
-        {BLOG.COMMENT_DISQUS_SHORT_NAME && (<div key='disqus'>
-            <DisqusComponent frontMatter={frontMatter}/>
-        </div>)}
+        {BLOG.COMMENT_DISQUS_SHORT_NAME && (
+          <div key="disqus">
+            <DisqusComponent frontMatter={frontMatter} url={url} />
+          </div>
+        )}
 
-        { BLOG.COMMENT_WALINE_SERVER_URL && (<div key='Waline'>
-            <WalineComponent/>
-        </div>) }
+        {BLOG.COMMENT_WALINE_SERVER_URL && (
+          <div key="Waline">
+            <WalineComponent />
+          </div>
+        )}
 
-        {BLOG.COMMENT_VALINE_APP_ID && (<div key='Valine' name='reply'>
-            <ValineComponent path={frontMatter.id}/>
-        </div>)}
+        {BLOG.COMMENT_VALINE_APP_ID && (
+          <div key="Valine" name="reply">
+            <ValineComponent path={frontMatter.id} />
+          </div>
+        )}
 
         {BLOG.COMMENT_GISCUS_REPO && (
           <div key="Giscus">
@@ -89,17 +95,23 @@ const Comment = ({ frontMatter }) => {
           </div>
         )}
 
-        {BLOG.COMMENT_CUSDIS_APP_ID && (<div key='Cusdis'>
-          <CusdisComponent frontMatter={frontMatter}/>
-        </div>)}
+        {BLOG.COMMENT_CUSDIS_APP_ID && (
+          <div key="Cusdis">
+            <CusdisComponent frontMatter={frontMatter} />
+          </div>
+        )}
 
-        {BLOG.COMMENT_UTTERRANCES_REPO && (<div key='Utterance'>
-          <UtterancesComponent issueTerm={frontMatter.id} className='px-2' />
-        </div>)}
+        {BLOG.COMMENT_UTTERRANCES_REPO && (
+          <div key="Utterance">
+            <UtterancesComponent issueTerm={frontMatter.id} className="px-2" />
+          </div>
+        )}
 
-        {BLOG.COMMENT_GITALK_CLIENT_ID && (<div key='GitTalk'>
-          <GitalkComponent frontMatter={frontMatter}/>
-        </div>)}
+        {BLOG.COMMENT_GITALK_CLIENT_ID && (
+          <div key="GitTalk">
+            <GitalkComponent frontMatter={frontMatter} />
+          </div>
+        )}
       </Tabs>
     </div>
   )

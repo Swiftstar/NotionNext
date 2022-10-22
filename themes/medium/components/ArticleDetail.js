@@ -67,7 +67,7 @@ export const ArticleDetail = props => {
         </div>
       </div>
       <ArticleAround prev={prev} next={next} />
-      <Comment frontMatter={post} />
+      <Comment frontMatter={post} url={url} />
     </section>
   </div>
 }

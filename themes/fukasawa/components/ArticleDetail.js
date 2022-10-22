@@ -96,7 +96,7 @@ export default function ArticleDetail(props) {
 
     {/* 评论互动 */}
     <div className="duration-200 shadow px-12 w-screen md:w-full overflow-x-auto dark:border-gray-700 bg-white dark:bg-hexo-black-gray">
-      <Comment frontMatter={post} />
+      <Comment frontMatter={post} url={url} />
     </div>
   </div>)
 }

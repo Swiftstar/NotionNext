@@ -27,7 +27,7 @@ export const LayoutSlug = props => {
                     {post && <>
                         <ArticleInfo post={post} />
                         <NotionPage post={post} />
-                        <Comment frontMatter={post}/>
+                        <Comment frontMatter={post} url={url}/>
                     </>}
                 </div>}
 

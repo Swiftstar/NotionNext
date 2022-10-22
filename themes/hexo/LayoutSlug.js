@@ -83,7 +83,7 @@ export const LayoutSlug = props => {
 
           {/* 评论互动 */}
           <div className="duration-200 overflow-x-auto bg-white dark:bg-hexo-black-gray px-3">
-            <Comment frontMatter={post} />
+            <Comment frontMatter={post} url={url} />
           </div>
         </div>}
       </div>
