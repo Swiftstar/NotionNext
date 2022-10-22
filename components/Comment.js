@@ -9,7 +9,7 @@ const DisqusComponent = dynamic(
   () => {
     return import('@/components/Disqus')
   },
-  { ssr: false}
+  { ssr: false }
 )
 
 const WalineComponent = dynamic(
