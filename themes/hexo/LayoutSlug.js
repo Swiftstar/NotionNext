@@ -1,4 +1,6 @@
+import BLOG from '@/blog.config'
 import { getPageTableOfContents } from 'notion-utils'
+import { useRouter } from 'next/router'
 import { useRef } from 'react'
 import { ArticleLock } from './components/ArticleLock'
 import HeaderArticle from './components/HeaderArticle'
@@ -30,6 +32,7 @@ export const LayoutSlug = props => {
     post.toc = getPageTableOfContents(post, post.blockMap)
   }
 
+  const url = BLOG.LINK + useRouter().asPath
   const drawerRight = useRef(null)
   const targetRef = isBrowser() ? document.getElementById('container') : null
 

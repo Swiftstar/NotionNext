@@ -1,4 +1,6 @@
+import BLOG from '@/blog.config'
 import { getPageTableOfContents } from 'notion-utils'
+import { useRouter } from 'next/router'
 import LayoutBase from './LayoutBase'
 import { ArticleLock } from './components/ArticleLock'
 import NotionPage from '@/components/NotionPage'
@@ -16,6 +18,8 @@ export const LayoutSlug = props => {
     post.content = Object.keys(post.blockMap.block)
     post.toc = getPageTableOfContents(post, post.blockMap)
   }
+
+  const url = BLOG.LINK + useRouter().asPath
 
   return (
         <LayoutBase {...props}>

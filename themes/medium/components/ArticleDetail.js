@@ -8,11 +8,13 @@ import formatDate from '@/lib/formatDate'
 import { useGlobal } from '@/lib/global'
 import BLOG from '@/blog.config'
 import NotionPage from '@/components/NotionPage'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 export const ArticleDetail = props => {
   const { post, prev, next, siteInfo } = props
   const { locale } = useGlobal()
+  const url = BLOG.LINK + useRouter().asPath
 
   const date = formatDate(
     post?.date?.start_date || post?.createdTime,

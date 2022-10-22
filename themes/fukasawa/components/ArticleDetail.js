@@ -1,8 +1,10 @@
+import BLOG from '@/blog.config'
 import Comment from '@/components/Comment'
 import NotionPage from '@/components/NotionPage'
 import formatDate from '@/lib/formatDate'
 import { useGlobal } from '@/lib/global'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import ArticleAround from './ArticleAround'
 
 /**
@@ -15,6 +17,7 @@ export default function ArticleDetail(props) {
   if (!post) {
     return <></>
   }
+  const url = BLOG.LINK + useRouter().asPath
   const { locale } = useGlobal()
   const date = formatDate(post?.date?.start_date || post?.createdTime, locale.LOCALE)
   return (<div id="container" className="max-w-5xl overflow-x-auto flex-grow mx-auto w-screen md:w-full ">
