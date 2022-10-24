@@ -12,6 +12,9 @@ const SocialButton = () => {
       {BLOG.CONTACT_GITHUB && <a target='_blank' rel='noreferrer' title={'github'} href={BLOG.CONTACT_GITHUB} >
         <i className='fab fa-github transform hover:scale-125 duration-150'/>
       </a>}
+      {BLOG.CONTACT_GITHUB && <a target='_blank' rel='noreferrer' title={'github'} href={BLOG.CONTACT_GITHUB} >
+        <i className='fab fa-github transform hover:scale-125 duration-150'/>
+      </a>}
       {BLOG.CONTACT_TWITTER && <a target='_blank' rel='noreferrer' title={'twitter'} href={BLOG.CONTACT_TWITTER} >
         <i className='fab fa-twitter transform hover:scale-125 duration-150'/>
       </a>}
